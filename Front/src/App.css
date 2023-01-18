@@ -1,0 +1,127 @@
+.books {
+    display: flex;
+    gap: 10px;
+}
+
+.book {
+    flex: 1;
+    margin-right: 10px;
+    /*width: 12rem;*/
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+img {
+    width: 100px;
+}
+
+.delete {
+    border: 1px solid palevioletred;
+}
+
+.delete:hover {
+    border: 1px solid palevioletred;
+    box-shadow: 1px 1px 10px red;
+}
+
+.update {
+    border: 1px solid cornflowerblue;
+}
+
+.update:hover {
+    border: 1px solid cornflowerblue;
+    box-shadow: 1px 1px 10px blue;
+}
+
+
+.link {
+    color: white;
+}
+
+
+.back {
+    border: 1px solid lightsalmon;
+}
+
+.back:hover {
+    border: 1px solid lightsalmon;
+    box-shadow: 1px 1px 10px orange;
+}
+
+
+.add {
+    border: 1px solid lightgreen;
+    position: fixed;
+    overflow: hidden;
+    bottom: 10px;
+    right: 10px;
+    /*    // padding:0,*/
+    /*// margin:0,*/
+    /*// display: 'block',*/
+    /*// boxSizing: "border-box",*/
+    /*// zIndex: 12,*/
+    /*// width: '100%'*/
+}
+
+.add:hover {
+    border: 1px solid lightgreen;
+    box-shadow: 1px 1px 10px green;
+}
+
+.addBook {
+    margin-top: 10px;
+    border: 1px solid lightgreen;
+}
+
+.addBook:hover {
+    border: 1px solid lightgreen;
+    box-shadow: 1px 1px 10px green;
+}
+
+
+
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+}
+
+.logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+        animation: logo-spin infinite 20s linear;
+    }
+}
+
+.card {
+    padding: 2em;
+}
+
+.read-the-docs {
+    color: #888;
+}

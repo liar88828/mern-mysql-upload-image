@@ -1,0 +1,25 @@
+POST http://localhost:8880/books
+Content-Type: application/json
+
+{
+  "title": "title from 6666",
+  "detail": "title from 6666",
+  "cover": "title from 6666",
+  "price": 8888
+}
+
+###
+####
+GET http://localhost:8880/books
+####
+
+
+PUT http://localhost:8880/books/5
+Content-Type: application/json
+
+{
+  "title": "title from 6666",
+  "detail": "title from 6666",
+  "cover": "title from 6666",
+  "price": 8888
+}
