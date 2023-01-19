@@ -1,7 +1,6 @@
-import {Sequelize} from "sequelize";
+import {DataTypes} from "sequelize";
 import {db} from "../config/Database.js";
 
-const {DataTypes} = Sequelize
 
 export const Product = db.define('Product', {
 	nama: DataTypes.STRING,
@@ -13,6 +12,6 @@ export const Product = db.define('Product', {
 
 // export default Product; // harus di kasih titik koma ;
 
-(async () => {
-	await db.sync();
-})();
+// (async () => {
+// 	await db.sync();
+// })();

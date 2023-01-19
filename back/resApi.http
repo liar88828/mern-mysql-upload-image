@@ -1,19 +1,28 @@
-POST http://localhost:8880/books
+GET http://localhost:5000/product
+####
+GET http://localhost:5000/product/1
+
+####
+POST http://localhost:5000/product
 Content-Type: application/json
 
 {
   "title": "title from 6666",
-  "detail": "title from 6666",
-  "cover": "title from 6666",
-  "price": 8888
+  "file": "img.png"
 }
 
 ###
-####
-GET http://localhost:8880/books
-####
+
+PATCH http://localhost:5000/product/2
+Content-Type: application/json
+
+{
+  "title": "title from 6666",
+}
 
 
+
+###
 PUT http://localhost:8880/books/5
 Content-Type: application/json
 
