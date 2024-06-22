@@ -123,6 +123,9 @@ export const saveProduct = (req, res) => {
 
 
 export const updateProduct = async (req, res) => {
+
+
+
 	const product = await Product.findOne({
 		where: {
 			id: req.params.id
@@ -131,15 +134,14 @@ export const updateProduct = async (req, res) => {
 	if (!product) return res.status(404).json({ msg: "No Data Found" });
 
 	let fileName = "";
-	if (req.files === null) {		fileName = product.image;	}
-	 else {
+	if (req.files === null) {
+		fileName = product.image;
+	} else {
 		const file = req.files.file;
 		const fileSize = file.data.length;
 		const ext = path.extname(file.name);
 		fileName = file.md5 + ext;
 		const allowedType = ['.png', '.jpg', '.jpeg'];
-		const filepath = `./public/images/${product.image}`;
-
 
 		if (!allowedType.includes(ext.toLowerCase())) return res
 			.status(422)
@@ -149,7 +151,9 @@ export const updateProduct = async (req, res) => {
 			.status(422)
 			.json({ msg: "Image must be less than 5 MB" });
 
+		const filepath = `./public/images/${product.image}`;
 		fs.unlinkSync(filepath);
+
 		file.mv(`./public/images/${fileName}`, (err) => {
 			if (err) return res
 				.status(500)
@@ -161,15 +165,14 @@ export const updateProduct = async (req, res) => {
 
 	try {
 		await Product.update(
-			{ nama: name, image: fileName, url: url },
+			{ nama: name, image: fileName, url },
 			{ where: { id: req.params.id } });
-		res
-			.status(200)
-			.json({ msg: "Product Updated Successfuly" });
-
+		res.status(200).json({ msg: "Product Updated Successfuly" });
+		
 	} catch (error) {
 		console.log(error.message);
 	}
+
 };
 
 
@@ -183,10 +186,14 @@ export const deleteProduct = async (req, res) => {
 
 
 	try {
-		const filepath = `./public/images/${product.image}`;
-		fs.unlinkSync(filepath);
 		await Product.destroy({ where: { id: req.params.id } });
 		res.status(200).json({ msg: 'Product Delete Success' });
+
+		// harus di kasih bawah agar image di esekusi bila tidak ada
+		const filepath = `./public/images/${product.image}`;
+		fs.unlinkSync(filepath);
+
+
 	} catch (error) {
 		res.status(error.message);
 	}

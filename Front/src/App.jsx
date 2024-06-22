@@ -1,20 +1,18 @@
-import './App.css'
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import ProductList from "./components/ProductList";
+import AddProduct from "./components/AddProduct";
+import EditProduct from "./components/EditProduct";
 
 function App() {
-    // const api = 'http://localhost:8880/books'
-
-    return (
-        <div className="App">
-            <BrowserRouter>
-                <Routes>
-                    <Route path={'*'} element={<div><h1>wrong</h1></div>}/>
-                </Routes>
-            </BrowserRouter>
-
-        </div>
-    )
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ProductList/>}/>
+        <Route path="add" element={<AddProduct/>}/>
+        <Route path="edit/:id" element={<EditProduct/>}/>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
